@@ -1,0 +1,23 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "YOUR_APP_NAME",
+      "image": "REPO/beanstream/YOUR_APP_NAME:VERSION",
+      "essential": true,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "awseb-logs-YOUR_APP_NAME",
+          "containerPath": "/var/log/supervisor"
+        }
+      ]
+    }
+  ]
+ }
