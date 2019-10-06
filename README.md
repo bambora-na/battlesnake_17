@@ -1,5 +1,9 @@
 # BattleSnake Microservice
 
+**This project is no longer maintained**
+
+As of October 2019, it doesn't correctly run due to a missing module (utils.py).
+
 BattleSnake microservice built on Docker/Python/Flask/Nginx/Gunicorn.
 
 Copyright © 2017 Beanstream Internet Commerce, Inc.
@@ -112,5 +116,5 @@ make build
 - To run a docker image locally for additional dev/testing:
 
 ```bash
-docker run -d -p 80:8080 beanstream/blacktail:0.0.1
+docker run -d -p 80:8080 beanstream/blacktail:1.0.0
 ```
