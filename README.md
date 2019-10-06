@@ -1,5 +1,3 @@
-<img src="http://www.beanstream.com/wp-content/uploads/2015/08/Beanstream-logo.png" />
-
 # BattleSnake Microservice
 
 BattleSnake microservice built on Docker/Python/Flask/Nginx/Gunicorn.
@@ -10,14 +8,12 @@ MIT Licensed - Use and abuse as you wish.
 
 This project requires Python 3.
 
-
-
 Note that as one, of many, considerations to scaling your web app that you should review the use of WEB_CONCURRENCY and
 Gunicorn. WEB_CONCURRENCY can be set to 3 for the Test/QA environment in order to set the number of Worker processes
 that Gunicorn will use to process requests. Test/QA usually can use a t2.small instance with 1 CPU core. # of Worker
 process was set using a formula of '(2 x $num_cores) + 1'.
 
-http://docs.gunicorn.org/en/stable/settings.html#workers
+<http://docs.gunicorn.org/en/stable/settings.html#workers>
 
 ```bash
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.5/bin"
@@ -31,13 +27,15 @@ be unlucky enough to have crossed paths with a Blacktail then you are already aw
 and forked tongue that await you.
 
 More info on BattleSnake can be found here:
-- https://github.com/sendwithus/battlesnake-python
-- https://stembolthq.github.io/battle_snake/
-- https://en.wikipedia.org/wiki/Python_(genus)
+
+- <https://github.com/sendwithus/battlesnake-python>
+- <https://stembolthq.github.io/battle_snake/>
+- <https://en.wikipedia.org/wiki/Python_(genus)>
 
 ## Persistence
 
-If you would like to persist the data between game turns logging to redis can be turned on in the `settings.conf` file. Redis must be running on localhost. The easiest way to do this is to run the docker container.
+If you would like to persist the data between game turns logging to redis can be turned on in the `settings.conf` file.
+Redis must be running on localhost. The easiest way to do this is to run the docker container.
 
 `docker run -d -p 6379:6379 redis`
 
@@ -50,35 +48,45 @@ will also be able to download these logs based on volume mounts in the Elastic B
 
 ## App Setup & Installation
 
-* Execute a git clone command on this repo and in a terminal cd into the root project directory.
+- Execute a git clone command on this repo and in a terminal cd into the root project directory.
+
 ```bash
-$ git clone https://github.com/Beanstream/blacktail.git
-$ cd blacktail/app
+git clone https://github.com/Beanstream/blacktail.git
+cd blacktail/app
 ```
-* Install virtualenv
+
+- Install virtualenv
+
 ```bash
-$ [sudo] pip install virtualenv
+[sudo] pip install virtualenv
 ```
-* Create and/or Activate project environment
+
+- Create and/or Activate project environment
+
 ```bash
-$ virtualenv -p python3 venv
-$ source venv/bin/activate
+virtualenv -p python3 venv
+source venv/bin/activate
 ```
-* Install/update project dependencies
+
+- Install/update project dependencies
+
 ```bash
 $ pip install -r requirements.txt
 ```
 
 ## Execution
 
-* To run the flask app just for development only (not for production) just do this:
+- To run the flask app just for development only (not for production) just do
+  this:
+
 ```bash
-$ python server.py
+python server.py
 ```
 
 ## Build & Deploy
 
-* Sample build and deploy commands:
+- Sample build and deploy commands:
+
 ```bash
 $ sudo pip install awscli --ignore-installed six
 $ aws ecr get-login --region us-west-2
@@ -95,12 +103,14 @@ $ docker tag beanstream/blacktail:latest {repo}/beanstream/blacktail:0.0.1
 $ docker push {repo}/beanstream/blacktail:0.0.1
 ```
 
-* Or... Sample build and deploy commands with make:
+- Or... Sample build and deploy commands with make:
+
 ```bash
 make build
 ```
 
-* To run a docker image locally for additional dev/testing:
+- To run a docker image locally for additional dev/testing:
+
 ```bash
-$ docker run -d -p 80:8080 beanstream/blacktail:0.0.1
+docker run -d -p 80:8080 beanstream/blacktail:0.0.1
 ```
