@@ -5,7 +5,6 @@ MAINTAINER Sven M. Resch <sven.resch@beanstream.com>
 
 # Install platform dependencies & setup flask application
 RUN mkdir -p /deploy/app
-COPY testrunner.sh /deploy/
 ADD app /deploy/app/
 
 RUN apk add --no-cache --update python3 \
